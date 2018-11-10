@@ -1,0 +1,13 @@
+
+<div style="margin-top:15%; margin-left:30%">
+<table style="width:40%">
+    <tr> <input type="text" placeholder ="Name"  id="name"></tr>
+    <tr><input type="email" placeholder ="email"  id="email" required></tr>
+    <tr><button class="btn btn-default loginButton" (click)="signIn()">Login</button></tr>
+    <tr>
+
+</table>
+<div id="fb" *ngIf="prod" >
+    <button class="btn btn-default" style= "margin-top:4%; text-align: center" (click)="socialSignIn('facebook')">Sign in with Facebook</button>
+</div>
+</div>

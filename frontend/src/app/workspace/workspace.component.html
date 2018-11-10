@@ -1,0 +1,77 @@
+<div class="col-md-6">
+  <table>
+    <tr class="th">
+        <td> <h3> <label id="name" ></label></h3></td>
+        <td style="text-align: left"> 
+          <tr class="no-ul"> <h4 class="ft-20" style="text-align: left"> Balance {{balance}}</h4> </tr>
+           
+          <tr class="no-ul" >
+            <td> <h4 class="ft-20" style="text-align: left"> Asset Amount </h4>
+            
+            </td> 
+            <td>
+                <h4 class="ft-20" ng-show="dataLoaded">{{asset_amount}}</h4>
+            </td>
+            <td *ngIf="dataLoaded==false" >
+              <img src="src/app/workspace/spin.gif" /> 
+          </td>
+          </tr>
+
+         
+        </td>
+        <td style="width:25%; background:#ececec" > <input type="text" placeholder ="Add funds"  id="amount">
+         <button class="btn btn-default add-money"(click)="addFunds()" >Add money</button>
+        </td> 
+    </tr>
+    </table>
+    <table>
+    <tr>
+      <td style ="width:85%"> 
+        <input #box (keyup.enter)="search(box.value)" placeholder ="Search stock by pyping ticker and press enter!">
+
+      </td>
+      
+    </tr>
+  </table>
+ 
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let u of selected_row; let i=index;">
+        <td>{{u.id}}</td>
+        <td>{{u.name}}</td>
+        <td>{{u.price}}</td>
+        <td> <input type="text" name="userName" [(ngModel)]="quantity"></td>
+        <td><button class="btn btn-default"(click)="buy(u)">Buy</button></td>
+        <td><button class="btn btn-default" (click)="cancel(u)">Cancel</button></td>
+      </tr> 
+    </tbody>
+  </table>
+  <table class="table table-striped">
+    <tbody>
+      <tr *ngFor="let u of search_results; let i=index;" (click)="selected_share(u);">
+        <td>{{u.symbol}}</td>
+        <td>{{u.name}}</td>
+      </tr> 
+    </tbody>
+  </table>
+  <h3 class="ft-20 ch"> Current Holdings</h3>
+  <table class="table table-striped tb">
+    <thead>
+        <tr>
+        <th>Stock Name</th>
+        <th>Quantity</th>
+        <th>Current Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let row of rows">
+        <td>{{row.name}}</td>
+        <td>{{row.count}}</td>
+        <td *ngIf="row.price!=null">{{row.price}}</td>
+        <td *ngIf="row.price==null">  <img src="src/app/workspace/spin.gif" /> </td>
+
+        <td><button class="btn btn-default"(click)="sell(row)">Sell</button></td>
+        </tr>
+    </tbody>
+  </table>
+</div>

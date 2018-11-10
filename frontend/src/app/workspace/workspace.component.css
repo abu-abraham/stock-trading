@@ -1,0 +1,40 @@
+.add-money{
+    margin: 0 auto;
+    width: 148px;
+    position: relative;
+    display: table;
+}
+
+#amount{
+  color: black;
+}
+
+.ft-20{
+  font-size: 20px;
+  margin: 8px;
+}
+
+.no-ul{
+  border: 0;
+  display: inline-block;
+}
+
+.th{
+  border: 3px solid #ececec;
+}
+
+.ch{
+    width: 90%;
+    display: block;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+
+.tb{
+    width: 90%;
+    margin: 0 auto;
+}
+
+.th ::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: black;
+}
